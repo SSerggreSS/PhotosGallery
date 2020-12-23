@@ -12,7 +12,7 @@ class PhotoCell: UICollectionViewCell {
     
     static let reuseIdentifier = "PhotoCell"
     
-    var imageView: UIImageView = {
+    let imageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
@@ -25,6 +25,10 @@ class PhotoCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        imageView.image = nil
     }
     
     private func setupImageView() {
